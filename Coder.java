@@ -31,7 +31,7 @@ public class Coder {
     public static char[] getMsg(Scanner input){
         String myMessage;
         System.out.print("Input Message: ");
-        myMessage = input.nextLine();// Read a line of message
+        myMessage = input.nextLine(); // Read a line of message
         return myMessage.toCharArray();
     }
     //--------
@@ -90,7 +90,7 @@ public class Coder {
         int pad = 8;
         while (n>0){ //translate ascii to binary
             digit = n%2;
-            binary =digit + binary;
+            binary = digit + binary;
             n/=2;
             pad -=1;
         }

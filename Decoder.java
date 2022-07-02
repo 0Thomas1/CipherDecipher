@@ -22,7 +22,7 @@ public class Decoder {
         // ket confirmation
         System.out.println("Key : "+key);
 
-        // chop input into manageable 8-bit binary string array
+        // create string array with 8-bit binary in each cell
         List<String> outLst = binStringChoppa(getMsg(in));
 
         //print decrypted character one by one
