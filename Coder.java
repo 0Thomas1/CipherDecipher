@@ -18,9 +18,9 @@ public class Coder {
         msg = getMsg(input); // Read the message from keyboard
         key = getKey(input);
         System.out.println("Key : "+key);
-        String out ="";
+        StringBuilder out = new StringBuilder();
         for (char character : msg) {
-            out += ascii2binary(cipher(character, key));
+            out.append(ascii2binary(cipher(character, key)));
         }
         System.out.println(out);
     }
@@ -85,21 +85,21 @@ public class Coder {
      * @return binary value
      */
     public static String ascii2binary(int n) {
-        String binary = "";
+        StringBuilder binary = new StringBuilder();
         int digit;
         int pad = 8;
         while (n>0){ //translate ascii to binary
             digit = n%2;
-            binary = digit + binary;
+            binary.insert(0, digit);
             n/=2;
             pad -=1;
         }
 
         // pad the number into an 8-bit binary number
         while (pad >0){
-            binary = "0" + binary;
+            binary.insert(0, "0");
             pad -=1;
         }
-        return binary;
+        return binary.toString();
     }
 }

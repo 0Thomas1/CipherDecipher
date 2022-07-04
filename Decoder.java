@@ -113,12 +113,12 @@ public class Decoder {
         char[] binCharArray = bin.toCharArray();
         List<String> stringArray = new ArrayList<>();
         for (int k = 0; k < binCharArray.length / 8; k++) {// for every 8 digit
-            String strToAdd="";
+            StringBuilder strToAdd= new StringBuilder();
             for (int i = k * 8; i <= k*8 + 7; i++) {// isolate 8-bit binary number as a string
-                strToAdd += Character.toString(binCharArray[i]);
+                strToAdd.append(Character.toString(binCharArray[i]));
             }
             // insert the 8-bit binary number string into a new cell in the Array
-            stringArray.add(strToAdd);
+            stringArray.add(strToAdd.toString());
         }
         return stringArray;
     }
