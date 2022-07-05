@@ -75,6 +75,8 @@ public class Coder {
         chars +=key;
         if (chars > up){
             chars =(char)(chars - up + low-1);
+        } else if (chars < low) {
+            chars =(char)(up - low + chars + 1);
         }
         return chars;
     }

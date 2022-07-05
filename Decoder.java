@@ -82,8 +82,10 @@ public class Decoder {
      */
     public static char decipherPart(char chars, int key, char low, char up) {
         chars -= key;
-        if (chars < low) {// wraps around to the top
-            chars = (char) ( up- low + chars+1);
+        if (chars > up){
+            chars =(char)(chars - up + low-1);
+        } else if (chars < low) {
+            chars =(char)(up - low + chars + 1);
         }
         return chars;
     }
@@ -94,14 +96,14 @@ public class Decoder {
      * @return ascii value
      */
     public static int binary2ascii(String bin) {
-        int num = 0;
+        int ascii = 0;
         char[] binary = bin.toCharArray();
         for (int i = 0; i < binary.length; i++) {// for each digit in the binary number
             if (binary[i] == '1') {
-                num += Math.pow(2, binary.length- 1 - i);
+                ascii += Math.pow(2, binary.length- 1 - i);
             }
         }
-        return num;
+        return ascii;
     }
 
     /**
